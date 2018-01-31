@@ -15,7 +15,13 @@ test('Verify correct request', (done)=>{
 		response.setEncoding('utf8');
 		response.on('data', (data)=>{
 			// console.log(data);
-			expect(data).toMatch('Im working');
+			expect(data).toMatch(`<html>
+<head><title>Hello Handling</title></head>
+  <body>
+    Hello Handling
+  </body>
+</html>
+`);
 			done();
 		});
 	});

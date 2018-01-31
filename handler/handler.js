@@ -16,7 +16,7 @@ server.register(inert, (err)=>{
 		path: '/',
 		method: 'GET',
 		handler: (request, reply)=>{
-			reply('Im working');
+			reply.file('./index.html');
 		}
 	});
 
