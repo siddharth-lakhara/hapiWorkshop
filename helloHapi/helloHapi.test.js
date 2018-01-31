@@ -1,19 +1,30 @@
-const soln = require('./solution');
+// const soln = require('./helloHapi');
 const axios = require('axios');
+const http = require('http');
 
-test('Check server is running', ()=>{
+test('Check server is running', (done)=>{
 	// console.log(soln.info.uri);
-	expect(soln.info.uri).toMatch('http://localhost:8080');
+	http.get('http://localhost:8080/', (response)=>{
+		response.setEncoding('utf8');
+		console.log(response.statusCode);
+		expect(response.statusCode).toBe(200);
+		done();
+	});
 });
 
 test('Verify correct request', (done)=>{
-	axios.get('http://localhost:8080/').
-	//axios.get('http://httpbin.org/get').
-		then((response)=>{
-			//expect(response).toMatch('Hello hapi');
-			let dataString = response.data;
-			console.log(dataString);
-			console.log('hello');
+	http.get('http://localhost:8080/', (response)=>{
+		response.setEncoding('utf8');
+		response.on('data', (data)=>{
+			expect(data).toMatch('Hello hapi');
 			done();
 		});
+	});
+	// axios.get('http://localhost:8080/').
+	// 	then((response)=>{
+	// 		//expect(response).toMatch('Hello hapi');
+	// 		let dataString = response.data;
+	// 		console.log(dataString);
+	// 		done();
+	// 	});
 });

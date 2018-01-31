@@ -16,10 +16,12 @@ server.route({
 	handler: handlerFunction
 });
 
-server.start(()=>{
-	//console.log('Server Started: ', server.info.uri);
+server.start((err)=>{
+	if (err)
+		console.log(err);
+	console.log('Server Started: ', server.info.uri);
 });
 
 // console.log('Server running: ', server.info.uri);
 
-module.exports = server;
+// module.exports = server;
