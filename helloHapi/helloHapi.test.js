@@ -20,9 +20,9 @@ test('Verify correct request', (done)=>{
 			done();
 		});
 	});
-	// axios.get('http://localhost:8080/').
+	// ('http://localhost:8080/').
 	// 	then((response)=>{
-	// 		//expect(response).toMatch('Hello hapi');
+	// 	//expect(response).toMatch('Hello hapi');
 	// 		let dataString = response.data;
 	// 		console.log(dataString);
 	// 		done();

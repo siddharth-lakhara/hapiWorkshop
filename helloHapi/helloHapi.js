@@ -24,4 +24,4 @@ server.start((err)=>{
 
 // console.log('Server running: ', server.info.uri);
 
-// module.exports = server;
+module.exports = server;
