@@ -1,5 +1,5 @@
 // const soln = require('./helloHapi');
-const axios = require('axios');
+// const axios = require('axios');
 const http = require('http');
 
 test('Check server is running', (done)=>{
