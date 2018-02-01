@@ -1,11 +1,12 @@
 
 let inert = require('inert');
 let hapi = require('hapi');
+let path = require('path');
 
 let server = new hapi.Server();
 server.connection({
 	host: 'localhost',
-	port: 8080//Number(process.argv[2])
+	port: Number(process.argv[2]) || 8080
 });
 
 server.register(inert, (err)=>{
@@ -16,7 +17,7 @@ server.register(inert, (err)=>{
 		path: '/',
 		method: 'GET',
 		handler: (request, reply)=>{
-			reply.file('./index.html');
+			reply.file(path.join(__dirname, 'index.html'));
 		}
 	});
 
