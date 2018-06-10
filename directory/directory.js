@@ -25,10 +25,34 @@ server.register(inert, (err)=>{
 		}
 	});
 
-	server.start((err)=>{
-		if (err){
-			console.log(err);
+	server.route({
+		path: '/foo/bar/{param}',
+		method: 'GET',
+		handler: {
+			directory: {
+				path: path.join(__dirname, '/foo/bar/'),
+				listing: true
+			}
 		}
-		//console.log('server started');
 	});
 });
+/*
+	server.route({
+		// path: '/',
+		path: '/foo/bar/{param}',
+		method: 'GET',
+		handler: {
+			directory: {
+				path: path.join(__dirname, '/foo/bar/'),
+				listing: true
+			}
+		}
+	});
+*/
+server.start((err)=>{
+	if (err){
+		console.log(err);
+	}
+	//console.log('server started');
+});
+//});

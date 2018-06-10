@@ -16,9 +16,9 @@ test('Verify correct request', (done)=>{
 		response.on('data', (data)=>{
 			// console.log(data);
 			expect(data).toMatch(`<html>
-    <head><title>Hello the handling</title></head>
+    <head><title>Hello handling</title></head>
     <body>
-        Hello the handling
+        Hello handling
     </body>
 </html>
 `);
